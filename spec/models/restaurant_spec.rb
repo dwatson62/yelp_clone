@@ -13,4 +13,10 @@ describe Restaurant, type: :model do
     end
   end
 
+  it 'is not valid with a ame of less than three characters' do
+    restaurant = Restaurant.new(name: "kf")
+    expect(restaurant).to have(1).error_on(:name)
+    expect(restaurant).not_to_be_valid
+  end
+
 end
