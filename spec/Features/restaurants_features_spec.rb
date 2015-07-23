@@ -22,6 +22,11 @@ feature 'restaurants' do
   end
 
   context 'creating restaurants' do
+
+    before(:each) do
+      sign_up
+    end
+
     scenario 'prompts user to fill our a form, then displays the new restaurant' do
       visit '/restaurants'
       click_link 'Add a restaurant'

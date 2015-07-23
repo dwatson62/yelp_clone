@@ -8,8 +8,7 @@ describe Restaurant, type: :model do
     it 'all information is deleted' do
       trade = Restaurant.create(name: 'Trade')
       Review.create(thoughts: 'Awesome', rating: '5', restaurant_id: trade.id)
-      trade.destroy
-      expect(Review.count).to eq 0
+      expect { trade.destroy }.to change { Review.count }.by -1
     end
   end
 
